@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="timer">2021.5.27</div>
+    <div class="box">盒子</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        //使用id访问元素，返回的是元素对象
+        var timer=document.getElementById("timer");
+        console.dir(timer);
+        //返回的是获取元素对象的集合，以伪数组的形式存储，伪数组没有array的push，pop方法
+        //就算只有一个元素，或没有该元素，返回的还是伪数组
+        var lis=document.getElementsByTagName("li");
+        console.dir(lis);
+        //父元素.getElementsByTagName 来获取子元素对象，父元素不能是获得的元素集合ul，必须是集合里的对象ul[0]
+        var ul=document.getElementsByTagName("ul");
+        console.dir(ul[0].getElementsByTagName("li"));
+        //通过类名选择返回的是获取对象的集合，HTML5才有
+        var box=document.getElementsByClassName("box");
+        console.dir(box);
+        //queryselect 返回指定选择器的第一个对象
+        document.querySelector(".box");
+        document.querySelector("#timer");
+        document.querySelector("li");
+        //queryselectAll返回指定选择器的所有对象的集合
+        document.querySelectorAll(".box");
+        document.querySelectorAll("#timer");
+        document.querySelectorAll("li");
+        //html元素
+        var html=document.documentElement;
+        console.dir(html);
+        //body元素
+        var body=document.body;
+        console.dir(body);
+    </script>
+</body>
+</html>

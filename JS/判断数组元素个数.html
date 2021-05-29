@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var input = prompt("请输入字符串");
+        console.log(input);
+        var o = {};//定义对象存储字符
+        for (var i = 0; i < input.length; i++)//遍历输入的字符串
+        {
+            var ch = input.charAt(i);//字符串定位函数
+            if (o[ch]) { //对象还可以这么操作！！！！！！
+                o[ch]++;
+            }
+            else {
+                o[ch] = 1;
+            }
+        }
+        console.log(o);
+        var max = 0;
+        var result_ch;
+        for (var key in o)//遍历对象属性
+        {
+            if (o[key] > max) {
+                max = o[key];
+                result_ch = key;
+            }
+
+        }
+        console.log(max);
+        console.log(result_ch);
+    </script>
+</body>
+
+</html>

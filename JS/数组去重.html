@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function unque(arr) {
+            var newarr = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (newarr.indexOf(arr[i]) === -1)
+                    newarr.push(arr[i]);
+            }
+            return newarr;
+        }
+        var input = prompt("请输入数组，以-号隔开");//网页的语言对输入逗号有影响
+       // console.log(input);
+        var demo = input.split("，");
+        console.log(demo);
+        console.log(unque(demo));
+    </script>
+</body>
+
+</html>
