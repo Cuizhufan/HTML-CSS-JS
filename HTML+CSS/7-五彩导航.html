@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>综合案例五彩导航</title>
+    <style>
+        .nav {
+            height: 41px;
+            width: 800px;
+             margin: 0 auto;/*水平居中 */
+            border-top: 3px solid #ff8500;
+            border-bottom: solid 1px #fcfcfc;
+            line-height: 41px;
+        }
+
+        .nav a {
+            display: inline-block;
+            font-size: 12px;
+            height: 41px;
+            background: rgb(250, 250, 250);
+            padding: 0 20px;
+            text-align: center; 
+            color: rgb(20, 20, 20);
+            text-decoration: none;
+
+        }
+
+        .nav .bg1 {
+            background: url(image/1.png) no-repeat;
+        }
+
+        .nav a:hover {
+            /* background-image: url(image/流程图.png); */
+            background: #eee;
+        }
+        .fu {
+            height: 100px;
+            width: 100px;
+            background: #000;
+            margin: 100px auto;
+            /*一定要给父元素加边框或者内边距或者设置overflo，子元素的外边框才能与父元素分离*/
+            border-top:1px solid transparent ;
+            padding: 0px;
+            overflow: hidden;
+        }
+        .zi {
+            height: 50px;
+            width: 50px;
+            background:orangered;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="" class="bg1">五彩导航</a>
+        <a href="">五</a>
+        <a href="">五彩</a>
+        <a href="">五彩导</a>
+        <a href="">五彩导航</a>
+    </div>
+    <div class="fu">
+        <div class="zi"></div> 
+    </div>
+</body>

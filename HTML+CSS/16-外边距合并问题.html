@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外边距合并问题</title>
+    <style>
+        .box1{
+            width: 300px;height: 300px;
+            margin: 10px auto;
+            background-color: #ccc;
+        }
+        /*如此，子盒子的外边距和父盒子重合，塌陷*/
+        .box2{
+            width: 200px;height: 200px;
+            margin: 100px auto;
+            background-color: #000;
+        }
+        .box3{
+            position: absolute;
+            width: 200px;height: 200px;
+            /* 绝对定位的水平居中办法 */
+            right: 50%;
+            margin-top: 100px;
+            margin-right: -100px;
+            background-color: rgb(224, 135, 135);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+
+        </div>
+    </div>
+    <div class="box1">
+        <div class="box3">
+            子元素添加浮动或者绝对定位、相对定位可以解决外边框塌陷问题
+        </div>
+    </div>
+</body>
+</html>

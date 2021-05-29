@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒子模型综合案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 240px;
+            height: 300px;
+            background: #fff;
+            margin: 0px auto;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .box img {
+            width: 100%;
+        }
+
+        .review {
+            font-size: 16px;
+            height: 30px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .info {
+            font-size: 14px;
+            color: #b0b0b0;
+            text-align: center;
+        }
+
+        .price {
+            color: #ff7700;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .span {
+            margin-left: 20px;
+            color: gray;
+        }
+
+        .kuaibao {
+            width: 248px;
+            height: 163px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+        .kuaibao h3 {
+            border-bottom: solid 1px skyblue;
+            height: 32px;
+            line-height: 32px;
+            padding-left: 15px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        li {
+            list-style: none; /*去掉li前面的项目符号*/
+            height: 23px;
+            line-height: 23px;
+            padding-left: 20px;
+
+        }
+
+        .kuaibao ul li a {
+            font-size: 14px;
+            text-decoration: none;
+            color: #666;
+
+        }
+        .kuaibao ul li a:hover{
+            text-decoration: underline;
+        }
+        .kuaibao ul {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="image/xiaomi.webp" alt="">
+        <p class="review">小米真无线蓝牙耳机Air2 Pro</p>
+        <div class="info">主动降噪/持久续航/无线充</div>
+        <div class="price"> 699元<span class="span"><s>699元</s></span></div>
+    </div>
+    <div class="kuaibao">
+        <h3>
+            品邮购快报
+        </h3>
+        <ul>
+            <li><a href="#">实时十四说四十说</a></li>
+            <li><a href="#">实时十四说四十说</a></li>
+            <li><a href="#">实时十四说四十说</a></li>
+            <li><a href="#">实时十四说四十说</a></li>
+            <li><a href="#">实时十四说四十说</a></li>
+        </ul>
+    </div>
+</body>
+<html>

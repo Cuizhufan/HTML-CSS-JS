@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四种定位</title>
+    <!-- 
+    定位有四种方式 
+    static   静态定位 标准流
+    relative 相对定位 相对于自己原来的位置移动，且原来位置保留（不脱标）
+    absolute 绝对定位 相对于最近一级有定位的祖先元素来移动位置。如果没有祖先元素，或者祖先没有定位（浮动的或者标准流），则根据网页偏移。且他是脱离标准流的，原来的位置不保留
+    fixed    固定定位 相对于可是页面的偏移，原来位置不保留
+ -->
+ <style>
+     * {
+         margin: 0px;
+         padding: 0px;
+     }
+     body{
+         height: 3000px;
+     }
+     .box1{
+         position:static;
+         width: 200px;
+         height: 200px;
+         background-color: rgb(243, 233, 233);
+     }
+     .box2{
+         position:relative;
+         width: 200px;
+         height: 200px;
+         top: 50px;
+         left: 50px;
+         background-color: pink;
+     }
+     .son{
+         position:absolute;
+         width: 100px;
+         height: 100px;
+         bottom: 50px;
+         left: 50px;
+         background-color: rgb(41, 15, 189);
+     }
+     .box3{
+        position:fixed;
+         width: 100px;
+         height: 100px;
+         top: 50px;
+         right: 50px;
+         background-color: rgb(236, 14, 14);
+     }
+ </style>
+</head>
+<body>
+    <div class="box1">
+        box1
+        <div class="son"> 由于父元素box1是标准流无定位，所以儿子相对于网页来偏移</div>
+    </div>
+    <div class="box2">
+        box2
+        子绝父相
+        <div class="son">由于父元素是相对定位，所以儿子相对于父元素来偏移</div>
+    </div>
+    <div class="box3">
+       BOX3  绝对定位,不随滚动条滚动，原来位置不保留。不是永远相对于页面四个角，可以相对于版心定位。
+    </div>
+</body>
+</html>
