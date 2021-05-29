@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浮动综合案例</title>
+    <style>
+        * {
+            margin:0px;
+            padding: 0px;
+        }
+        .top {
+            height: 50px;
+            background-color:gray;
+        }
+        .banner {
+            width: 978px;
+            height: 150px;
+            background-color: gray;
+            margin: 10px auto;
+
+        }
+        li {
+            list-style: none;
+        }
+        .box {
+            width: 978px;
+            height: 300px;
+            margin: 0px auto;
+            background-color: pink;
+        }
+        .box ul li {
+            float: left;
+            width: 237px;
+            height: 300px;
+            margin-right: 10px;
+            background-color: blue;
+        }
+        .box .last {
+            margin-right: 0px;
+        }
+        .footer {
+            height: 200px;
+            margin-top: 10px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="banner"></div>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li class="last">4</li>
+        </ul>
+    </div>
+    
+    <div class="footer"></div>
+</body>
+</html>

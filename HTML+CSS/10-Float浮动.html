@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒子模型综合案例</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        /* float浮动盒子要放在标准流盒子里 */
+        .box {
+            width: 800px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .box div {
+            float: left;
+            width: 200px;
+            height: 300px;
+            background-color: rgb(241, 59, 181);
+        }
+
+        .box .two {
+            background-color: rgb(56, 13, 42);
+        }
+
+        .box .four {
+            background-color: rgb(66, 70, 248);
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box1 {
+            width: 1226px;
+            height: 258px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+        .box1 li{
+            width: 296px;
+            height: 258px;
+            background-color: rgb(182, 11, 168);
+            float: left;
+            margin-right: 14px;
+        }
+        /* 第四个li不需要右边距 */
+        .box1 .last {
+            margin-right: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div>1</div>
+        <div class="two">2</div>
+        <div>3</div>
+        <div class="four">4</div>
+    </div>
+
+    <ul class="box1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li class="last">4</li>
+    </ul>
+</body>
+
+</html>

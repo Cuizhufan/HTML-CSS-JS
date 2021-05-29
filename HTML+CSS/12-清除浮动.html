@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>清除浮动</title>
+    <!-- 父盒子的高度适合不给，但浮动使得父盒子的高度变为0
+    清除浮动的四种方式： -->
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .claerfix:after {
+            content: none;
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        .box {
+            width: 1000px;
+            border: royalblue 1px solid;
+            background-color: black;
+            margin: 10px auto;
+        }
+        .box1 {
+            width: 1000px;
+            border: royalblue 1px solid;
+            background-color: black;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+         .one {
+            float: left;
+            width: 200px;height: 250px;
+            background-color:pink;
+        }
+        .two {
+            float: left;
+            width: 200px;height: 250px;
+            background-color:pink;
+        }
+         .three {
+            float: left;
+            width: 200px;height: 250px;
+            background-color:pink;
+        }
+         .four {
+            float: left;
+            width: 200px;height: 250px;
+            background-color:pink;
+        }
+        /* 清除浮动方法1：添加额外标签，设置其clear：both */
+        .box .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+     <!-- /* 清除浮动方法1：添加额外标签，设置其clear：both */ -->
+     <div>
+        <div class="box">
+            <div class="one">1添加额外标签</div>
+            <div class="two">2添加额外标签</div>
+            <div class="three">3添加额外标签</div>
+            <div class="four">4添加额外标签</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- 方法二 给父盒子添加overflow -->
+    <div>
+        <div class="box1">
+            <div class="one">1给父盒子添加overflow</div>
+            <div class="two">2给父盒子添加overflow</div>
+            <div class="three">3给父盒子添加overflow</div>
+            <div class="four">4给父盒子添加overflow</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- 方法三 after伪元素 -->
+    <div>
+        <div class="box1 clearfix" >
+            <div class="one">1after伪元素</div>
+            <div class="two">2after伪元素</div>
+            <div class="three">3after伪元素</div>
+            <div class="four">4after伪元素</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- 未处理时父盒子的高度为0 -->
+    <div>
+        <div class="box">
+            <div class="one">1未处理</div>
+            <div class="two">2未处理</div>
+            <div class="three">3未处理</div>
+            <div class="four">4未处理</div>
+            
+        </div>
+    </div>
+   
+    
+</body>
+</html>
