@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>helloworld</h1>
+    <button>请求数据</button>
+    <!--
+        实现的功能：
+            在node中向localhost:9000/home发送index.html,
+            而html中向localhost：9000/data请求数据，两者是同源的
+    -->
+    <script>
+        var btn=document.getElementsByTagName('button')[0];
+        btn.onclick=function(){
+            var xhr=new XMLHttpRequest();
+            //因为页面与请求的地址是同源的，所以请求的url可以简写
+            xhr.open('GET','/data');
+            xhr.send();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4){
+                    if(xhr.status>=200 && xhr.status<300)
+                    {
+                        console.log(xhr.response);
+                    }
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+                     
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+        width: 200px;
+        height: 200px;
+        border: solid 1px blue;
+    }
+    </style>
+    
+</head>
+<body>
+    <div id="result"></div>
+    <button>请求数据</button>
+
+    <script>
+       function handlefunction(data){
+            var result=document.getElementById('result');
+            result.innerHTML=data.name;
+       } 
+       //创建script标签
+       var script=document.createElement('script');
+       //设置script标签
+       script.src='http://localhost:9000/jsonp';
+       //将标签插入到文档中
+       document.body.appendChild(script);
+
+    </script>
+    <!--jsonp 的实现：
+        利用script的跨域特性，传输的数据必须包含在服务端响应的返回函数中，
+        因为只有函数或者代码才能被script标签解析，
+        这里设置了回调函数为handlefunction，传递的参数是一个对象，
+        在页面内定义的回调函数内可以执行操作-->
+    
+</body>
+</html>

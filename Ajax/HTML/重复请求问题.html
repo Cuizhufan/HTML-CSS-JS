@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+    <button>请求</button>
+    <script>
+        var btn=document.getElementsByTagName('button')[0];
+        var xhr=null;
+        var issending=false;
+        btn.onclick=function(){
+            if(issending==true) {xhr.abort();}
+            xhr=new XMLHttpRequest();
+            
+            issending=true;
+            xhr.open('GET','http://localhost:8000/server');
+            xhr.send();
+
+            //readstate时h'xhr对象中的属性 有1，2，3，4，0五个值
+            xhr.onreadystatechange=function(){
+                //判断服务端是否有响应结果了
+                if(xhr.readyState==4)
+                {
+                    issending=false;
+                    //判断是否响应成功
+                    if(xhr.status>=200&&xhr.status<300)
+                    {
+                        //处理结果
+                        console.log('chengong');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

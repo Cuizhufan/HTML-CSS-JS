@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+            width: 200px;
+            height: 200px;
+            border: solid 1px blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="result"></div>
+    <script>
+        var result=document.getElementById("result");
+        result.addEventListener("mouseover",function(){
+            var xhr=new XMLHttpRequest();
+            xhr.open('POST','http://localhost:8000/server');
+            xhr.setRequestHeader('Content-Type','application/x-form-urlencoded');
+            xhr.send();
+             //readstate时h'xhr对象中的属性 有1，2，3，4，0五个值
+             xhr.onreadystatechange=function(){
+                //判断服务端是否有响应结果了
+                if(xhr.readyState==4)
+                {
+                    //判断是否响应成功
+                    if(xhr.status>=200&&xhr.status<300)
+                    {
+                        //处理结果
+                        result.innerHTML=xhr.response.name;
+
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
