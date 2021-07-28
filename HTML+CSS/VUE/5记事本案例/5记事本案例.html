@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <title>记事本案例</title>
+</head>
+<body>
+    <section id="todoapp">
+        <header class="header">
+            <h1>小黑记事本</h1>
+            <input type="text" class="new-todo" v-model="inputvalue" @keyup.enter="add">
+        </header>
+        <section class="main">
+            <ul class="todo-list">
+                <li class="todo" v-for="(item,index) in list">
+                <div class="view">
+                    <span class="index">{{ index+1 }}.</span>
+                    <label>{{ item }}</label>
+                        <button class="destroy" v-on:click="remove(index)"></button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <footer class="footer">
+            <span class="todo-count" v-if="list.length!=0"><strong>{{list.length}}条记录</strong></span>
+            <button class="clear-completed" @click="clear" v-show="list.length!=0">clear</button>
+        </footer>
+    </section>
+    <footer class="info">
+        <p>
+            <a href="http://www.itheima.com/"><img src="./img/black.png" alt="" /></a>
+          </p>
+    </footer> 
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#todoapp",
+            data:{
+                list:[
+                    "任务",
+                    "任务2",
+                    "任务3"
+                ],
+                inputvalue:""
+            },
+            methods: {
+                add:function(){
+                    this.list.push(this.inputvalue);
+                    this.inputvalue="";
+                },
+                remove:function(index){
+                    this.list.splice(index,1);
+                },
+                clear:function(){
+                    this.list=[];
+                }
+            },
+           
+        })
+    </script>
+
+</body>
+</html>

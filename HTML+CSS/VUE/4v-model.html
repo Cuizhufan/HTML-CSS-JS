@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        v-model 可以便捷的设置和获取表单的值，绑定的数据和表单元素的值双向关联
+    -->
+    <div class="app">
+        <input type="text" v-model="message">
+        <h3>{{message}}</h3>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:".app",
+            data:{
+                message:"你好！"
+            }
+        })
+    </script>
+</body>
+</html>

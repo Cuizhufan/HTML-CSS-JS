@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--实现的功能：
+        v-for 结构化生成数据，利用v-on绑定点击按键，增加或删除结构化生成数据的数组内容
+    -->
+    <div class="app">
+        <input type="button" value="增加数组元素" v-on:click="add">
+        <input type="button" value="减少数组元素" v-on:click="remove">
+        <ul>
+            <li v-for="(item,index) in arr"><!--v-for一般与数组一起用，根据数据生成列表结构-->
+               {{index+1}} 学校地址有：{{item}}
+            </li>
+        </ul>
+        <h3 v-for="(item,index) in objarr">
+            {{item.name}}
+        </h3>
+        
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:".app",
+            data:{
+                arr:[
+                    "北京",
+                    "上海",
+                    "广州",
+                    "深圳"
+                ],
+                objarr:[
+                    {name:"obj1"},
+                    {name:"obj2"},
+                    {name:"obj3"}
+                ]
+            },
+            methods:{
+                add:function () {
+                    this.objarr.push({name:"objN"}) ;
+                },
+                remove:function(){
+                    this.objarr.pop();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

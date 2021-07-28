@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1v-bind绑定</title>
+    <style>
+        .active{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!--v-bind绑定属性-->
+        <img v-bind:src="imgsrc" alt="">
+        <br>
+        <!--简写,设置title-->
+        <img :src="imgsrc" alt="" :title="imgtitle+'!!!!!'" >
+        <br>
+        <!--设置类名，使用三元表达式-->
+        <img :src="imgsrc" alt="" :class="isactive?'active':''">
+        <!--绑定点击事件-->
+        <img :src="imgsrc" alt="" :class="isactive?'active':''" v-on:click="changeclass">
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                imgsrc:"../image/1.png",//地址跟vue.js的路径有关
+                imgtitle:"图片",
+                isactive:true
+            },
+            methods:{
+                changeclass:function(){
+                    this.isactive=!this.isactive;
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

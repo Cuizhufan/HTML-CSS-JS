@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位-轮播图</title>
+    <style>
+       * {
+           margin: 0%;
+           padding: 0%;
+       }
+       .tb-promo {
+           position: relative;
+           width: 520px;
+           height: 280px;
+           margin: 0% auto;
+           
+       }
+       .tb-promo img{
+           width: 520px;
+           height: 280px;
+       }
+       .prev{
+           position: absolute;
+           left: 0px;
+           top: 50%;
+           margin-top: -30px;
+           width: 20px;
+           height: 30px;
+           background:rgba(0, 0, 0, 0.3);
+           text-align: center;
+           line-height: 30px;
+           color: #fff;
+           text-decoration: none;
+           /* 半圆弧制作 */
+           border-top-right-radius: 15px;
+           border-bottom-right-radius: 15px;
+       }
+       .next{
+           position: absolute;
+           right: 0px;
+           top: 50%;
+           margin-top: -30px;
+           width: 20px;
+           height: 30px;
+           background:rgba(0, 0, 0, 0.3);
+           text-align: center;
+           line-height: 30px;
+           color: #fff;
+           text-decoration: none;
+           border-top-left-radius: 15px;
+           border-bottom-left-radius: 15px;
+       }
+       .promo-nav{
+           position: absolute;
+           bottom: 10px;
+           left: 50%;
+           margin-left: -35px;
+           height: 13px;
+           
+       }
+       .promo-nav li{
+           list-style: none;
+           float: left;
+           width: 13px;
+           height: 13px;
+           margin: 0px 5px;
+           border-radius: 13px;
+           background:rgba(255, 255, 255, 0.3)
+       }
+       .promo-nav li:hover{
+        background:rgba(255, 255, 255, 1)
+        }
+    </style>
+</head>
+<body>
+    <div class="tb-promo" id="app">
+        <img :src="imgsrc[index]" alt="">
+
+        <a href="#" class="prev" v-on:click="prev" v-show="index!=0"><</a> 
+        <!--踩坑！！！！
+            当herf属性为空时，点击a标签会刷新当前页面，因此herf=“#"才正确
+        -->
+        <a href="#" class="next" v-on:click="next" v-show="index<imgsrc.length-1">></a>
+        <!--上一张和下一张的符号显示逻辑：当index！0时，上一张标签都会显示，当index<数组大小-1时，下一站标签都会显示-->
+        <ul class="promo-nav">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:'#app',
+            data:{
+                imgsrc:[
+                '../image/1.png',
+               ' ../image/banner_18.png',
+               ' ../image/1600268922180749.png',
+               '../image/hot_03.png'
+                ],
+                index:0
+            },
+            methods:{
+                prev:function(){
+                    this.index=this.index-1;
+                    console.log(this.index);
+                },
+                next:function(){
+                    this.index=this.index+1;
+                    console.log(this.index);
+                }
+                
+            }
+        }
+        )
+        
+    </script>
+</body>
+</html>

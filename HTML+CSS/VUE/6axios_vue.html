@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios测试</title>
+</head>
+<body>
+    <div class="app">
+        <button id="get" @click='getjokes'>get</button>
+        <button id="post">post</button>
+        <p>{{message}}</p>
+    </div>
+    
+    <!-- 官网提供的 axios 在线地址 -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!--
+  <script>
+      var btn=document.getElementById('get');
+      var btn2=document.getElementById('post');
+      btn.onclick=function(){
+          axios.get('https://autumnfish.cn/api/joke/list?num=3')
+          .then(function(response){
+              console.log(response);
+          })
+      }
+      btn2.onclick=function(){
+          axios.post('https://autumnfish.cn/api/user/reg',{username:'czf'})
+          .then(function(response){
+              console.log(response);
+          })
+      }
+  </script>-->
+  <!--添加vue-->
+  <script src="vue.js"></script>
+    <script>
+        var app=new Vue({
+                el:".app",
+                data:{
+                    message:"你好！"
+                },
+                methods: {
+                    getjokes:function(){
+                        console.log(this.message);
+                        //这里将this赋值给that，因为this在作用域变化时会改变，下面使用that.message来访问massage变量
+                        var that=this;
+                        axios.get('https://autumnfish.cn/api/joke')
+                        .then(function(response){
+                            console.log(response.data);
+                            that.message=response.data;
+                            //this.message == undefine 原因是内部函数的this不能访问外部的this 
+                        })
+                    }
+                }
+            })
+    </script>
+</body>
+</html>
