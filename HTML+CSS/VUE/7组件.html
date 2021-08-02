@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <h1>{{message}}</h1>
+        <!--2 使用组件   -->
+        <button-click></button-click>
+        
+        <!--组件和组件之间的数据是分离的-->
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        //1注册组件
+        Vue.component('ButtonClick',{
+            template:`<button @click='btn_count'>点击了{{count}}次</button>`,
+            //数据写成函数的形式
+            data(){
+                return{
+                    count:0
+                }
+                
+            },
+            methods: {
+                btn_count(){
+                    this.count++;
+                }
+            }
+        })
+        var app=new Vue({
+            el:'.app',
+            data:{
+                message:'hellow word'
+            },
+            template:'<ButtonClick />'
+        })
+    </script>
+</body>
+</html>

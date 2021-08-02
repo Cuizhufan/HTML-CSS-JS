@@ -159,3 +159,70 @@ btn2.onclick=function(){
       }
 ```
 
+注意在axios的.then方法中使用this时的作用域问题，例如：
+
+```javascript
+<script>
+        var app=new Vue({
+                el:".app",
+                data:{
+                    message:"你好！"
+                },
+                methods: {
+                    getjokes:function(){
+                        console.log(this.message);
+                        //这里将this赋值给that，因为this在作用域变化时会改变，下面使用that.message来访问massage变量
+                        var that=this;
+                        axios.get('https://autumnfish.cn/api/joke')
+                        .then(function(response){
+                            console.log(response.data);
+                            that.message=response.data;
+                            //this.message == undefine 原因是内部函数的this不能访问外部的this 
+                        })
+                    }
+                }
+            })
+    </script>
+```
+
+## 组件
+
+1注册组件：
+
+```javascript
+ //1注册组件
+        Vue.component('ButtonClick',{
+            //组件的结构
+            template:`<button @click='btn_count'>点击了{{count}}次</button>`,
+           //因为组件会复用，所用数据写成函数的形式，函数返回包含数据的对象，每一次调用都是一个新的数据
+            data(){
+                return{
+                    count:0
+                }   
+            },
+            methods: {
+                btn_count(){
+                    this.count++;
+                }
+            }
+        })
+```
+
+2使用组件
+
+```javascript
+<!--2 使用组件   -->
+        <button-click></button-click>
+        <ButtonClick />
+        <!--组件和组件之间的数据是分离的-->
+```
+
+注意：
+
+组件模板定义中只能有一个根节点，可以套一个div标签
+
+组件名称定义用大驼峰法，但是在html里调用时，HTML不会识别大写，都会转成小写。因此要转成小写短横线形式。或者使用<templatename />
+
+避免使用全局组件，而是用局部组件
+
+### 组件通信
