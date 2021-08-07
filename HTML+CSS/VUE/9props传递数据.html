@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <article-list
+        :box-title='title'
+        img-src="../../image/1.png"
+        article-title="你的暴饮暴食是因为？"
+        article-content="在一项调查中发现人们暴饮暴食的习惯不是因为饿了"
+        >
+    
+    </article-list>
+    </div>
+
+    <template id="box">
+        <div>
+            <h3>{{boxTitle}}</h3>
+            <div>
+                <img :src="imgSrc" alt="">
+                <div>
+                    <h4>{{articleTitle}}</h4>
+                    <p>{{articleContent}}</p>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                title:'动态标题' //用户定义的模板的内容也可以使用动态参数，将值存在vue实例的data中
+            },
+            components:{
+                ArticleList:{
+                    data(){
+                        return {
+                            
+                            /* 不使用props传递时，就在组件内定义，但是用户不能更改
+                            boxTitle:"健康饮食"
+                            imgSrc:"../../image/1.png"
+                            articleTitle:"你的暴饮暴食是因为？"
+                            articleContent:"在一项调查中发现人们暴饮暴食的习惯不是因为饿了"
+                            */
+                        }
+                    },
+                    template:"#box",
+                    props:['boxTitle','imgSrc','articleTitle','articleContent']
+                }
+            }
+        })
+    </script>
+</body>
+</html>

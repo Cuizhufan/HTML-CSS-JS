@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <section-head>
+            <h3>这是一个插槽</h3>
+            <template v-slot:title>
+                <p>这是一个具名插槽</p>
+            </template>
+        </section-head>
+    </div>
+
+    <template id="head">
+        <div>
+            <slot name="title"></slot><!--具名插槽-->
+            <slot></slot> <!--公共插槽-->
+
+        </div>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            components:{
+                SectionHead:{
+                    template:'#head'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

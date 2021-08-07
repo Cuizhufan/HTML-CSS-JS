@@ -16,10 +16,10 @@
     </div>
     <script src="vue.js"></script>
     <script>
-        //1注册组件
+        //1注册组件(全局)
         Vue.component('ButtonClick',{
             template:`<button @click='btn_count'>点击了{{count}}次</button>`,
-            //数据写成函数的形式
+            //数据写成函数的形式，数据放在函数返回的对象中
             data(){
                 return{
                     count:0
