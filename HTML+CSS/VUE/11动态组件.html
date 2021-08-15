@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button v-for="tab in tabs" :key='tab.id' @click="componentId=tab.component" 
+        :class='{active:componentId==tab.component}'>{{tab.name}}</button>
+        <div>
+            <component :is="componentId"></component>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data() {
+                return {
+                    componentId:'Html',
+                    tabs:[
+                        {name:'Html',component:'Html',id:0},
+                        {name:'css',component:'css',id:1},
+                        {name:'js',component:'js',id:2}
+                    ]
+                }
+            },
+            components:{
+                Html:{
+                    template:'<div>Html</div>'
+                },
+                css:{
+                    template:'<div>css</div>'
+                },
+                js:{
+                    template:'<div>js</div>'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

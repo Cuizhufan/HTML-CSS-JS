@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       
+    </div>
+    <script src="vue.js"></script>
+    <script >
+        new Vue({
+            data() {
+                return {
+                    name:'CUIZHUFAN',
+                }
+            },
+            template:` <div>
+                            <h2 @click="change">{{this.name}}</h2>
+                            <button @click='delate'>销毁实例</button>
+                        </div>`,
+            methods: {
+                change(){
+                    this.name="崔朱帆"
+                },
+                delate(){
+                    this.$destroy();
+                }
+            },
+            beforeCreate() {
+                alert('实例还没创建出，属性事件都还没有')
+            },
+            created() {
+                alert('实例创建完成并完成初始化，所有date，methods选项有了,但是还没有渲染到页面中,这里可以请求数据')
+            },
+            beforeMount() {
+                alert("挂载前，模板已经编译完成，准备王页面中挂载")
+                
+            },
+            mounted() {
+                alert('此时dom已经挂在到页面上，有数据和方法')
+            },
+            beforeUpdate() {
+                alert('更新数据前')
+            },
+            updated() {
+                alert('数据已经更新')
+            },
+            beforeDestroy() {
+                alert('实例准备销毁')
+            },
+            destroyed() {
+                alert('实例已经销毁')
+            },
+        }).$mount('#app');
+    </script>
+</body>
+</html>
