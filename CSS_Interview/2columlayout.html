@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两栏布局</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        /* float+margin-left*/
+        .outer1{ 
+            height: 200px;
+            border: 10px solid red ;
+        }
+        .left1{
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        .right1{
+            margin-left: 200px;
+            height: inherit;
+            background-color: yellow;
+        }
+        /* position+margin-left*/
+        .outer2{
+            height: 200px;
+            position: relative;
+            border: 1px solid red ;
+        }
+        .left2{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 0%;
+            background-color: yellow;
+        }
+        .right2{
+            margin-left: 200px;
+            height: inherit;
+            background-color: blue;
+        }
+        /*table-cell*/
+        .outer3{
+            display: table;
+            width: 100%;  /*table的宽度默认是内容自适应,使用width：100%要注意盒模型*/
+            box-sizing: border-box;
+            border: 10px solid red ;
+        }
+        .left3{
+            display: table-cell;
+            height: 200px;
+            width: 200px;
+            background-color: yellow;
+        }
+        .right3{
+            display: table-cell;
+            background-color: blue;
+        }
+        /*双float + calc（）函数计算右边自适应宽度*/
+        .outer4{
+            height: 200px;
+            border: 10px solid red ;
+        }
+        .left4{
+            float: left;
+            height: 200px;
+            width: 200px;
+            background-color: yellow;
+        }
+        .right4{
+            float: left;
+           /* width: calc(100%-200px);*/
+            width: calc(100% - 200px);
+            height: 200px;;
+            background-color: blue;
+        }
+        /*双inline-block+calc函数计算自适应宽度，但是有间隙要去除*/
+        .outer5{
+            height: 200px;
+            font-size: 0; /*inline-block之间的间隙去除*/
+            border: 10px solid red ;
+        }
+        .left5{
+            display: inline-block;
+            height: 200px;
+            width: 200px;
+            font-size: 16px;
+            background-color: yellow;
+        }
+        .right5{
+            display: inline-block;
+            width: calc(100% - 200px);
+            height: 200px;
+            font-size: 16px;
+            background-color: blue;
+        }
+        /*float+BFC*/
+        .outer6{
+            height: 200px;
+            border: 10px solid red ;
+        }
+        .left6{
+            float: left;
+            height: 200px;
+            width: 200px;
+            background-color: yellow;
+        }
+        .right6{
+            overflow: hidden;
+            height: 200px;
+            background-color: blue;
+        }
+        /*flex布局*/
+        .outer7{
+            height: 200px;
+            display: flex;
+            border: 10px solid red ;
+        }
+        .left7{
+            width: 200px;
+            background-color: yellow;
+        }
+        .right7{
+            flex: 1;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer1">
+        <div class="left1">固定宽度区(sideBar)</div>
+         <div class="right1">自适应区(content)</div>
+    </div>
+    <div class="outer2">
+        <div class="left2">固定宽度区(sideBar)</div>
+         <div class="right2">自适应区(content)</div>
+    </div>
+    <div class="outer3">
+        <div class="left3">固定宽度区(sideBar)</div>
+         <div class="right3">自适应区(content)</div>
+    </div>
+    <div class="outer4">
+        <div class="left4">固定宽度区(sideBar)</div>
+         <div class="right4">自适应区(content)</div>
+    </div>
+    <div class="outer5">
+        <div class="left5">固定宽度区(sideBar)</div>
+         <div class="right5">自适应区(content)</div>
+    </div>
+    <div class="outer6">
+        <div class="left6">固定宽度区(sideBar)</div>
+         <div class="right6">自适应区(content)</div>
+    </div>
+    <div class="outer7">
+        <div class="left7">固定宽度区(sideBar)</div>
+         <div class="right7">自适应区(content)</div>
+    </div>
+</body>
+</html>
