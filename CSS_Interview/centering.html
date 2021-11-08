@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>居中</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #parent1{
+            display: flex;
+            height: 100px;
+            width: 100px;
+            margin: 10px auto;
+            background-color: black;
+            justify-content: center;
+            align-items: center;
+        }
+        #child1{
+            height: 50px;
+            width: 50px;
+            background-color: blue;
+
+        }
+        #parent2{
+            display: block;
+            position: relative;
+            height: 100px;
+            width: 100px;
+            margin: 10px auto;
+            background-color: black;
+        }
+        #child2{
+            position:absolute;
+            height: 50px;
+            width: 50px;
+            top: 50%;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+            background-color: blue;
+        }
+        #parent3{
+            display: block;
+            position: relative;
+            height: 100px;
+            width: 100px;
+            margin: 10px auto;
+            background-color: black;
+        }
+        #child3{
+            position:absolute;
+            height: 50px;
+            width: 50px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: blue;
+        }
+        #parent4{
+            display: block;
+            position: relative;
+            height: 100px;
+            width: 100px;
+            margin: 10px auto;
+            background-color: black;
+        }
+        #child4{
+            position:absolute;
+            height: 50px;
+            width: 50px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background-color: blue;
+        }
+        .table{
+            display: table;
+            height: 100px;
+            width: 100px;
+            background-color: black;
+            margin: 10px auto;
+        }
+        #parent5{
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        #child5{    
+            margin: auto;/* 父元素的text-align会受margin：0影响*/
+            height: 50px;
+            width: 50px;
+            background-color: blue;
+        }
+        #parent6{
+            position: relative;
+            height: 100px;
+            width: 100px;
+            margin: 10px auto;
+            background-color: black;
+            
+        }
+        #child6{    
+            position:absolute;
+            height: 50px;
+            width: 50px;
+            left: calc(50% - 25px);
+            top: calc(50% - 25px);
+            background-color: blue;
+        }
+        #parent7{
+            display: grid;
+            align-items:center;
+            height: 100px;
+            width: 100px;
+            margin: 10px auto;
+            background-color: black;
+            
+        }
+        #child7{    
+            margin: auto;
+            height: 50px;
+            width: 50px;
+            background-color: blue;
+        }
+        
+    </style>
+</head>
+<body>
+    <div  id="parent1">
+        <div  id="child1"></div>
+    </div>
+    <div  id="parent2">
+        <div  id="child2"></div>
+    </div>
+    <div  id="parent3">
+        <div  id="child3"></div>
+    </div>
+    <div  id="parent4">
+        <div  id="child4"></div>
+    </div>
+    <div class="table">
+        <div  id="parent5">
+            <div  id="child5"></div>
+        </div>
+    </div>
+    <div  id="parent6">
+        <div  id="child6"></div>
+    </div>
+    <div  id="parent7">
+        <div  id="child7"></div>
+    </div>
+</body>
+</html>
