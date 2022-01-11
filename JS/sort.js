@@ -7,7 +7,7 @@ function sort(arr){
     var temp=0;
     for(let i=0;i<len-1;i++)
     {
-
+        //容易遗忘
         min_index=i;
         for(let j=i;j<len;j++)
         {
@@ -22,26 +22,32 @@ function sort(arr){
     }
     console.log(arr);
 }
-
+/**
+ * 插入排序
+ * @param  arr 数组
+ */
 function sort2(arr){
     var len=arr.length;
-    var min_index=0;
-    var temp=0;
-    for(let i=0;i<len-1;i++)
+    for(let i=1;i<len;i++)
     {
-
-        min_index=i;
-        for(let j=i;j<len;j++)
+        var temp=arr[i];
+        let j=i-1;
+        for(;j>0&&temp<arr[j];j--)
         {
-            if(arr[min_index]>arr[j])
-            {
-                min_index=j;
-            }
+            arr[j+1]=arr[j];
         }
-        temp=arr[i];
-        arr[i]=arr[min_index];
-        arr[min_index]=temp;
+        arr[j+1]=temp;
     }
     console.log(arr);
 }
-sort(arr);
+sort2(arr);
+for(let i=0;i<10;i++){
+    if(i<5)
+    {
+        console.log("www")
+
+    }
+    else{
+        break;
+    }
+}
